@@ -1,0 +1,693 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Task 8</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="5644a707-d93e-4915-b8e5-95146f60dadc" class="page sans"><header><h1 class="page-title">Task 8</h1><table class="properties"><tbody><tr class="property-row property-row-date"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesDate"><path d="M10.8889,5.5 L3.11111,5.5 L3.11111,7.05556 L10.8889,7.05556 L10.8889,5.5 Z M12.4444,1.05556 L11.6667,1.05556 L11.6667,0 L10.1111,0 L10.1111,1.05556 L3.88889,1.05556 L3.88889,0 L2.33333,0 L2.33333,1.05556 L1.55556,1.05556 C0.692222,1.05556 0.00777777,1.75556 0.00777777,2.61111 L0,12.5 C0,13.3556 0.692222,14 1.55556,14 L12.4444,14 C13.3,14 14,13.3556 14,12.5 L14,2.61111 C14,1.75556 13.3,1.05556 12.4444,1.05556 Z M12.4444,12.5 L1.55556,12.5 L1.55556,3.94444 L12.4444,3.94444 L12.4444,12.5 Z M8.55556,8.61111 L3.11111,8.61111 L3.11111,10.1667 L8.55556,10.1667 L8.55556,8.61111 Z"></path></svg></span>Created</th><td><time>@July 5, 2021</time></td></tr><tr class="property-row property-row-person"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesPerson"><path d="M9.625,10.8465 C8.91187,10.2891 8.12088,9.926 7,9.26013 L7,8.71938 C7.21175,8.47612 7.392,8.176 7.53813,7.83213 C7.94587,7.7315 8.3125,7.33425 8.3125,7 C8.3125,6.51788 8.1095,6.32713 7.8715,6.17137 C7.8715,6.15562 7.875,6.14162 7.875,6.125 C7.875,5.41362 7.4375,3.5 5.25,3.5 C3.0625,3.5 2.625,5.4145 2.625,6.125 C2.625,6.14162 2.6285,6.15562 2.6285,6.17137 C2.3905,6.32713 2.1875,6.51788 2.1875,7 C2.1875,7.33425 2.55413,7.7315 2.96187,7.833 C3.108,8.176 3.28825,8.47612 3.5,8.71938 L3.5,9.26013 C2.37912,9.92513 1.58812,10.2882 0.875,10.8465 C0.041125,11.4984 0,12.4688 0,14 L10.5,14 C10.5,12.4688 10.4589,11.4984 9.625,10.8465 Z M13.125,7.3465 C12.4119,6.78912 11.6209,6.426 10.5,5.76013 L10.5,5.21938 C10.7118,4.97613 10.892,4.676 11.0381,4.33213 C11.4459,4.2315 11.8125,3.83425 11.8125,3.5 C11.8125,3.01787 11.6095,2.82713 11.3715,2.67138 C11.3715,2.65562 11.375,2.64162 11.375,2.625 C11.375,1.91363 10.9375,0 8.75,0 C6.5625,0 6.125,1.9145 6.125,2.625 C6.125,2.64162 6.1285,2.65562 6.1285,2.67138 C6.11188,2.68275 6.09787,2.69588 6.08125,2.70725 C7.83212,3.066 8.59688,4.54825 8.72813,5.74787 C8.97575,6.00863 9.1875,6.39625 9.1875,7 C9.1875,7.60288 8.771,8.20312 8.18388,8.51462 C8.127,8.624 8.06662,8.729 8.00275,8.82962 C8.155,8.91537 8.30025,8.99675 8.44025,9.07463 C9.08075,9.4325 9.63375,9.74137 10.164,10.1561 C10.3022,10.2638 10.4204,10.3801 10.5289,10.4991 L14,10.4991 C14,8.96875 13.9589,7.99837 13.125,7.3465 Z"></path></svg></span>Author</th><td></td></tr></tbody></table></header><div class="page-body"><h1 id="6f4f1cd4-0dfb-427f-9e25-a6dffb77d177" class="">Требования</h1><ul id="6bcb2cb4-b2ad-4449-a814-c1a79b8d80ed" class="bulleted-list"><li style="list-style-type:disc">Минимальная поддерживаемая версия операционной системы: iOS 12.1</li></ul><ul id="22708684-65ef-4a8d-9668-49b131cc69e0" class="bulleted-list"><li style="list-style-type:disc">В готовом приложении должно <strong>полностью</strong> воспроизводиться поведение, представленное в демонстрационном ролике</li></ul><ul id="6f5614b0-ab31-4561-be56-b21beb60cb1b" class="bulleted-list"><li style="list-style-type:disc">Основной язык реализации приложения: Objective-C.
+Для реализации экрана <code>Drawings</code> и вспомогательного отображения <code>Timer</code> необходимо использовать язык Swift<figure id="7c926dcf-b600-4b52-ac5c-267066e69bfe"><a href="https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Apple Developer Documentation</div></div><div class="bookmark-href"><img src="https://developer.apple.com/favicon.ico" class="icon bookmark-icon"/>https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis</div></div></a></figure></li></ul><ul id="9d342e9b-080a-428d-b077-066ec8260766" class="bulleted-list"><li style="list-style-type:disc">Для тестирования интерфейса и логики работы приложения необходимо использовать  <code>iPhone SE 2nd generation</code> с установленной операционной системой iOS 13.5</li></ul><ul id="22d28ea3-0e3b-4398-9f60-950db84cc5aa" class="bulleted-list"><li style="list-style-type:disc">Дизайн готового приложения на устройстве <code>iPhone SE 2nd generation</code> должен в точности соответствовать описанному в файле дизайна</li></ul><ul id="8795df9f-29dc-41dd-a578-d1ee01ee0b4c" class="bulleted-list"><li style="list-style-type:disc">Название приложения: &quot;RSSchool_T8&quot;</li></ul><ul id="98d19c22-5c8d-4002-9769-c6833d9e163a" class="bulleted-list"><li style="list-style-type:disc">Приложение работает только со светлой темой</li></ul><ul id="c409c45e-64ab-4c8f-853a-8d2d44ad48f2" class="bulleted-list"><li style="list-style-type:disc">Для реализации UI используется исключительно UIKit</li></ul><h1 id="ea58f70f-747d-4a08-ab12-e87591734a39" class="">Критерии</h1><ul id="6d28f612-e513-460f-966a-a3e81d7fd32b" class="bulleted-list"><li style="list-style-type:disc">Пользователь может (должен иметь возможность, используя готовое приложение) отрисовать изображение по каждому шаблону: <code>tree</code>, <code>landscape</code>, <code>head</code>, <code>planet</code>. Готовое изображение максимально точно повторяет описанное в файле дизайна (допустимы <strong>малые</strong> неточности в местах). 
+<mark class="highlight-teal">+15 баллов</mark></li></ul><ul id="d6281d79-6a96-4379-8997-8b07f9d5b649" class="bulleted-list"><li style="list-style-type:disc">Пользователь может регулировать время отрисовки. Время отрисовки соответствует заданному пользователем. 
+Например, корректным будет случай, когда при настройке длительности отрисовки, равной 5 секундам, отрисовка будет длиться 5 секунд (с точностью до 0.3 секунды). 
+Некорректным будет поведение, когда пользователь задал время отрисовки, равное, например, 3 секундам, а следующий цикл отрисовки длился 4 секунды.
+<mark class="highlight-teal">+15 баллов</mark></li></ul><ul id="6418bd93-c25b-4637-b9ed-610ce7db353d" class="bulleted-list"><li style="list-style-type:disc">Пользователь может выбирать цвета для отрисовки. Максимальное количество: 3 цвета, минимальное количество: 0 цветов. При отрисовке <strong>обязательно</strong> используются либо заданные пользователем цвета, либо цвета по умолчанию. Пользователь может добавлять цвета в выбранные и удалять их из выбранных. Используемые в отрисовке цвета соответствуют выбранным. 
+Если пользователь выбрал и сохранил цвета <code>красный</code>, <code>жёлтый</code> и <code>cиний</code>, тогда только эти цвета будут использованы в отрисовке. 
+Например, некорректным считается поведение, когда пользователь выбрал и сохранил для отрисовки цвета <code>красный</code>, <code>жёлтый</code> и <code>cиний</code>, а после этого в следующем цикле отрисовке были использованы цвета <code>красный</code>, <code>жёлтый</code> и <code>розовый</code>. 
+Корректным будет поведением, когда пользователь выбрал и сохранил цвета, например, <code>красный</code>, <code>жёлтый</code> и <code>cиний</code>, а затем в следующем цикле отрисовки были использованы цвета <code>красный</code>, <code>жёлтый</code> и <code>cиний</code>. 
+<mark class="highlight-teal">+15 баллов</mark></li></ul><ul id="266bea07-53e9-48ab-8d7c-a50abf95dd6b" class="bulleted-list"><li style="list-style-type:disc">Дизайн готового приложения на устройстве <code>iPhone SE 2nd generation</code> с версией iOS 13.5 в точности соотвествует описанному в файле дизайна.
+<mark class="highlight-teal">+15 баллов</mark></li></ul><ul id="6b7f0af2-f76c-44d1-aef8-55c25c549679" class="bulleted-list"><li style="list-style-type:disc">В готовом приложении на устройстве <code>iPhone SE 2nd generation</code> с версией iOS 13.5 можно воспроизвести flow из демонстрационного ролика.
+<mark class="highlight-teal">+10 баллов</mark></li></ul><ul id="1a7388cc-68fc-4889-8e6e-6e6bc888916b" class="bulleted-list"><li style="list-style-type:disc">Пользователь может экспортировать готовое изображение в приложения <code>Photos</code> и <code>Files</code> в формате PNG или JPEG (❗️). 
+<mark class="highlight-teal">+10 баллов</mark></li></ul><ul id="79bfbf11-a399-4787-9a0f-b2ca4ceec26e" class="bulleted-list"><li style="list-style-type:disc">В ходе работы приложения не наблюдаются утечки памяти. 
+<mark class="highlight-teal">+10 баллов</mark></li></ul><ul id="a9fe049f-53ac-40f0-b3d1-a5ab906635ff" class="bulleted-list"><li style="list-style-type:disc">Был использован язык Swift для реализации:<ul id="5f2a3eb8-e1d4-47f1-8f72-ac63eaaaf07d" class="bulleted-list"><li style="list-style-type:circle">экрана <code>Drawings</code></li></ul><ul id="3eaf8bdb-bb9f-4bc0-bda3-09f132a559fd" class="bulleted-list"><li style="list-style-type:circle">вспомогательного отображения <code>Timer</code></li></ul><p id="2e4a5675-83e2-4c4c-bfda-06210d1da0fe" class="">Использование языка Swift предполагает реализацию с его помощью только основных элементов UI и объектов бизнес-логики, с которыми у экрана <code>Drawings</code> или у вспомогательного отображения <code>Timer</code> происходит <strong>прямое взаимодействие</strong>. Всё, что также описано на языке Swift, но не имеет прямого отношения к данным элементам, должно быть рассмотрено как <strong>нарушение данного критерия</strong>.</p><p id="aebd0e1f-e19d-473d-b9bc-61cc96e6d2da" class="">То есть, например, во вспомогательном отображении <code>Timer</code> нужно создать объект типа <code>NSTimer</code> (или типа <code>Timer (который часть Foundation)</code>) и с помощью совместимости с objc связать эту логику с основным экраном <code>Artist</code>. Логику кнопки <code>Reset</code> нужно, обратно, связать с элементом <code>Timer</code>.</p><p id="215609b1-58a0-44aa-81e0-e6e57cae0663" class="">В реализации готового приложения необходимо задействовать механизм совместимости языков Swift и Objective-C.
+Если экран <code>Drawings</code> и вспомогательное отображение <code>Timer</code> были реализованы на языке Objective-C, тогда данный пункт не засчитывается и не рассматривается как нарушение.</p><p id="ffb63635-c347-47b5-8d0b-e41a92745c79" class=""><mark class="highlight-teal">+10 баллов</mark></p></li></ul><ul id="3a8dcb5a-6e08-459d-b623-bdcc9354f98d" class="bulleted-list"><li style="list-style-type:disc">Язык Swift был использован где-либо ещё, кроме экрана <code>Drawings</code> и вспомогательного отображения <code>Timer</code>. Данный пункт - это нарушения из пункта выше. 
+<mark class="highlight-pink">-10 баллов</mark></li></ul><ul id="7e587eb6-7778-4d8f-bfac-1dd858b84ca4" class="bulleted-list"><li style="list-style-type:disc">Для отрисовки изображения по шаблону не был использован объект <code>NSTimer</code> либо для отрисовки изображения были задействованы методы и типы для явной анимации (методы <code>UIView</code> <code>animateWithDuration:...</code> <code>transitionWithView:...</code>, тип <code>UIViewPropertyAnimator</code>, тип <code>CAAnimation</code> и его наследники). 
+<strong>Этот пункт не касается типа </strong><strong><code>CALayer</code></strong><strong>, его наследников и их внутреннего поведения</strong>. 🎨  🍪 🥚
+<mark class="highlight-pink">-10 баллов</mark></li></ul><ul id="17032391-7acb-4a12-965a-11b35d6b366b" class="bulleted-list"><li style="list-style-type:disc">Объекты <code>NSTimer</code> продолжают работать тогда, когда были замещены другими объектами <code>NSTimer</code> или когда время их работы было завершено. Например, неправильным будет считаться случай, когда после окончания цикла отрисовки соответствующий этому циклу объект <code>NSTimer</code> продолжает работать. 
+<mark class="highlight-pink">-5 баллов</mark></li></ul><ul id="27dc754e-4776-4b53-9cc0-de87fa852c90" class="bulleted-list"><li style="list-style-type:disc">Приложение не запускается или элементы UI не отображаются так, как это описано в файле дизайна, или невозможно воспроизвести flow из демонстрационного ролика на устройстве <code>iPhone 8</code> с версией ниже 13.0 и выше 12.1 (имеется ввиду любая версия меньше 13.0 и, одновременно, выше 12.1).
+<mark class="highlight-pink">-5 баллов </mark></li></ul><ul id="36cba78a-ee4a-4003-bf93-0151f7116aee" class="bulleted-list"><li style="list-style-type:disc">Другие мелкие неточности. Этот критерий отдаётся на волю проверяющего и может включать в себя какие-либо замечания по коду, реализации UI и комплектации проекта. 
+Замечания проверяющего<strong> не должны </strong>пересекаться с требованиями, пунктами и примерами, описанными в данном файле, в файлах дизайна и представленными в демонстрационном ролике. 
+Оценка за данный пункт должна быть выставлена <strong>только один раз</strong> и <strong>только когда все остальные пункты</strong> из блока критериев <strong>были проверены</strong> и <strong>оценены</strong>. Причина выставления данного пункта должна быть максимально объективной и подкреплена примером из проверяемого проекта. 
+Проверяющий также должен предоставить свой вариант решения поставленного им замечания. Человек, который получил данное замечание, но не получил достаточный фидбек, требуемый в этом пункте, вправе требовать уточнения по этому критерию у проверяющего. 
+<mark class="highlight-pink">-5 баллов</mark></li></ul><h3 id="6cbc543d-8339-4a36-9698-620332349bdb" class="">Дополнение к критериям</h3><p id="ad1b50e3-550d-446e-90ab-0eff8d9dc51e" class="">Если в приложении была использована анимация (например, для анимирования элементов на вспомогательном отображении <code>Palette</code> или анимация тени у кнопок), это не должно приниматься за ошибку и несоответствие дизайну. Исключением для использования анимации является пункт, описанный в основном блоке критериев.</p><p id="d0c495a5-a731-4cfe-a9f8-77efb976a33e" class="">На усмотрение оценивающего, к итоговой оценке можно добавить баллы. Это можно делать исходя из наличия и качества анимированных элементов (беря во внимание пункт из основного блока критериев, а также за общее впечатление от проверяемого проекта. </p><p id="5c70d596-487c-412e-83fe-781a86e67877" class="">Последнее никак не должно пересекаться с требованиями, пунктами и примерами, описанными в данном файле, в файлах дизайна и представленными в демонстрационном ролике. Например, это может быть общее положительное впечатление от качества кода или применённые знания о языке (к примеру, использование категорий для типа <code>UIColor</code>). 
+Максимальное значение: +10 баллов, минимальное: +0 баллов.</p><p id="8297cf19-03d8-4bda-baca-941ad76f67b2" class="">Эту оценку можно добавить в том случае, если после оценивания всей работы конечная сумма баллов меньше 100. При этом после добавления этой оценки сумма баллов не должна превышать 100. </p><p id="de3d8473-84ae-44ff-9be4-1f50afb310a8" class="">Эту оценку нельзя добавить тогда, когда не все критерии из основого блока были проверены и оценены (включая пункт о мелких неточностях).</p><p id="8af7a8d7-b00b-42dc-be23-0d559982eeb1" class="">Например, итоговая сумма получилась 95, при этом в приложении была реализована анимация. Оценивающий решил добавить оценку за эти анимации. Максимальное значение, которое он может добавить - +5 баллов, чтобы в итоге было 95 + 5 = 100.</p><h1 id="d3d60164-0051-429c-b821-5c55bc5f95e3" class="">Пожелания</h1><p id="b0cba15c-9762-40d5-bb8f-a196478591a9" class="">Не стесняйтесь спрашивать друг у друга помощь и задавать вопросы в чате. Если у вас возникают трудности в тестировании готовых приложений, вы можете попросить кого-нибудь помочь вам с этим. Коммуникация - это часть работы, которая делает её чуть более интересной и простой.</p><p id="e211bdb2-c263-4c1e-aab1-82c6d8204b35" class="">А ещё <strong>внимательно </strong>читайте ТЗ.</p><h1 id="4d8410eb-958a-4179-afc3-0f0921722552" class="">Демонстрация работы</h1><p id="4b4199d5-f945-4d89-8dab-592890ff603f" class="">Демонстрационный ролик показывает <strong>только flow</strong>, который необходимо реализовать и протестировать в готовом приложении. Для уточнения цветов, размеров и др. свойств элементов интерфейса смотрите файл дизайна.</p><figure id="66816e7f-8f15-4015-bf68-885781f3c5fb"><div class="source"><a href="Task/Simulator_Screen_Recording_-_iPhone_SE_(2nd_generation)_-_2021-07-12_at_18.30.36.mp4">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/962b82fe-9704-491a-8e64-8ee6a1db5d20/Simulator_Screen_Recording_-_iPhone_SE_(2nd_generation)_-_2021-07-12_at_18.30.36.mp4</a></div></figure><h1 id="c4f544ef-c8da-4b1a-9ee6-c40ab7097656" class="">Описание</h1><p id="7e8bb906-0d97-4ee6-afd1-5c9a3ce7732a" class="">В этом задании необходимо реализовать приложение-рисовалку. Рисование происходит по заранее заданному шаблону, процесс производится пошагово на отображении.</p><p id="677401bd-943f-4afe-b566-1bb987d54320" class="">Всего шаблонов 4:</p><ul id="a5a39b73-66fe-4e6c-9b64-547c71bf45de" class="bulleted-list"><li style="list-style-type:disc"><code>tree</code> - находится в <code>tree-frame</code></li></ul><ul id="2c75be6f-bd08-4b78-b8a3-bf6c7447ce41" class="bulleted-list"><li style="list-style-type:disc"><code>head</code> - находится в <code>head-frame</code></li></ul><ul id="22d0e018-4f38-449f-b1ec-2ad41868effe" class="bulleted-list"><li style="list-style-type:disc"><code>landscape</code> - находится в <code>landscape-frame</code></li></ul><ul id="2398902c-ea06-4356-849f-bb292f239937" class="bulleted-list"><li style="list-style-type:disc"><code>planet</code> - находится в <code>planet-frame</code></li></ul><p id="f80f9122-3764-4cb3-ab3b-bbd305575f21" class="">Для перевода в <code>CGPath</code> необходимо каждый из шаблонов экспортировать в формат SVG, после чего открыть этот файл в текстовом редакторе (например, Visual Studio Code) и извлечь последовательность, описывающую каждый из путей. </p><figure class="callout" style="white-space:pre-wrap;display:flex" id="ff9233fd-0c0a-44ad-a6c6-7a3a39478a41"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Для шаблона <code>planet</code> необходимо объединить опорные значения, описывающие элемент <code>asteroids</code>, в одну последовательность опорных значений.</div></figure><p id="41625311-3290-412d-bbf5-cb1b70599e86" class="">Извлечённую последовательность опорных значений необходимо перевести в <code>UIBezierPath</code> на сайте:</p><figure id="5781306e-d029-42ba-be6d-c015430dbc4c"><a href="https://swiftvg.mike-engel.com" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">swiftvg - Convert SVG path data to a Swift 3 UIBezierPath</div><div class="bookmark-description">swiftvg - Convert SVG path data to swift 3 syntax</div></div><div class="bookmark-href">https://swiftvg.mike-engel.com</div></div></a></figure><p id="75dbc292-639b-4a6d-8c3d-b6792384d289" class="">Полученный путь представлен на языке <code>Swift</code> и содержит некоторое количество неточностей. Данные неточности необходимо исправить, а путь описать на языке <code>Objective-C</code>.</p><hr id="5eae17eb-6edb-485e-a006-dc12454478fc"/><p id="64c2037a-4a95-4cdf-b98b-fce09b426ff4" class="">Экран запуска приложения представлен в файле дизайна в элементе <code>launchscreen</code>. </p><hr id="01677fd1-46d5-47d6-ab27-b6e803b1fe04"/><p id="6f26c615-0b00-4450-80fc-72ecaafad1bf" class="">Основной экран - <code>Artist</code>. На нём находится отображение <code>Canvas</code>, на котором происходит отрисовка, и 5 кнопок: <code>Open Palette</code>, <code>Open Timer</code>, <code>Draw</code>, <code>Share</code>, <code>Drawings</code>. </p><ul id="435311f8-1c7f-40ac-b604-1dbafc877bc9" class="bulleted-list"><li style="list-style-type:disc">Заголовок экрана - &quot;<strong><em>Artist</em></strong>&quot;</li></ul><p id="4dbbeaca-32c0-4822-9f2f-ea079605021b" class="">Этот экран может находиться в одном из трёх состояний:</p><ul id="6dab971d-8552-49b2-9e81-23fc390ef2a8" class="bulleted-list"><li style="list-style-type:disc"><code>idle</code></li></ul><ul id="5d42dbe5-a3c3-48fc-a0fb-ec7b6d5b379b" class="bulleted-list"><li style="list-style-type:disc"><code>draw</code></li></ul><ul id="4afa0efb-3422-4b15-970f-e99282cd9785" class="bulleted-list"><li style="list-style-type:disc"><code>done</code></li></ul><p id="44d1f72b-b124-49e1-9d05-ebe0ef087260" class="">В состоянии <code>idle</code> активны кнопки <code>Open Palette</code>, <code>Open Timer</code>, <code>Draw</code> и <code>Drawings</code>, кнопка <code>Share</code> неактивна. <code>Canvas</code> не отображает рисунок. </p><figure id="d3de6129-a135-495b-a859-01986a73e863" class="image"><a href="Task/Untitled.png"><img style="width:1034px" src="Task/Untitled.png"/></a><figcaption>Экран <code>Artist</code>, состояние <code>idle</code></figcaption></figure><hr id="af7a4efe-ade2-4fd9-ac8e-fe3691c2d5b4"/><p id="c39c508d-327f-48ac-aacf-055b74b01865" class="">При нажатии на кнопку <code>Draw</code> на отображении <code>Canvas</code> отрисовывается заданный шаблон. Экран <code>Artist</code> переходит в состояние <code>draw</code>.  В этом состоянии кнопки <code>Open Palette</code>, <code>Draw</code>, <code>Open Timer</code> и <code>Share</code> неактивны, кнопка <code>Drawings</code> активна.</p><p id="3f95baf0-cd08-41e5-badc-cb0354634428" class="">Отрисовка происходит с помощью трёх путей. Цвета для путей извлекаются из вспомогательного отображения <code>Palette</code>, время отрисовки - из вспомогательного отображения <code>Timer</code>. Обратите внимание на то, что концы у этих путей в процессе отрисовки и в готовом рисунке должны быть скруглены. Прогресс отрисовки должен отображаться на <code>Canvas</code>.</p><p id="52ec6805-ae98-4f02-82c5-86c73e1edaa7" class="">По умолчанию отрисовка происходит со следующими параметрами:</p><ul id="508e3254-25cd-42cf-b8a1-6db4fba94f87" class="bulleted-list"><li style="list-style-type:disc">Время отрисовки: 1 секунда</li></ul><ul id="7b38939d-ef2c-4264-9656-22ca27016998" class="bulleted-list"><li style="list-style-type:disc">Цвет: <code>#000000</code></li></ul><hr id="b7c0e650-4638-4813-a340-76a6dbca6d26"/><p id="292795b6-1d0d-4553-9750-13fd9ef6adf4" class=""><strong>Интервал отрисовки</strong> - время между срабатываниями <strong>таймера </strong>(объекта <code>NSTimer</code>). Интервал отрисовки равен следующему значению:</p><figure id="ab3a12e8-d391-4449-94d0-09e244afb49a" class="equation"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>t</mi><mo>=</mo><mfrac><mn>1</mn><mn>60</mn></mfrac></mrow><annotation encoding="application/x-tex">\Delta t=\frac{1}{60}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">Δ</span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.00744em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">60</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></div></figure><p id="ac78525d-e715-460f-a4e4-582c85218d3b" class=""><strong>Шагом отрисовки</strong> называется приращение пути за один интервал отрисовки. Шаг отрисовки высчитывается по следующей формуле:</p><figure id="3e206d28-4c6d-4f19-8294-ab218e38e51a" class="equation"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>s</mi><mo>=</mo><mfrac><mn>1</mn><mrow><mn>60</mn><mo>⋅</mo><mi>T</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">s=\frac{1}{60\cdot T}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">s</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.00744em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">60</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></div></figure><p id="f9bd0385-33d0-49dd-838e-2bcd40ebc5d6" class="">где <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi></mrow><annotation encoding="application/x-tex">T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span></span><span>﻿</span></span> - время отрисовки.</p><hr id="a502f81a-8536-42ca-affa-0230ac9318ab"/><figure id="599e15de-fab2-47b0-a199-a350bcc5e654" class="image"><a href="Task/Untitled%201.png"><img style="width:1034px" src="Task/Untitled%201.png"/></a><figcaption>Экран <code>Artist</code>, состояние <code>draw</code></figcaption></figure><hr id="17bd8c4b-35a5-425c-9d31-926385adebdb"/><p id="9634595b-eb11-4cb8-97c2-7298e320bf0c" class="">После окончания отрисовки экран <code>Artist</code> переходит в состояние <code>done</code>. В этом состоянии кнопки <code>Open Palette</code> и <code>Open Timer</code> неактивны, кнопки <code>Drawings</code>, <code>Reset</code> и <code>Share</code> активны. На <code>Canvas</code> отображается рисунок. </p><p id="39f9d12e-a7f9-4a16-8536-3c590a3d784f" class="">При нажатии на кнопку <code>Reset</code> экран <code>Artist</code> переходит в состояние <code>idle</code>. </p><p id="549f9962-4e13-4b54-9b70-755978576130" class="">Переход из состояния <code>done</code> в состояние <code>idle</code> должен занимать не более 1 секунды.</p><figure id="31783acc-ae22-4c32-ac6d-fe3d978189f9" class="image"><a href="Task/Untitled%202.png"><img style="width:1034px" src="Task/Untitled%202.png"/></a><figcaption>Экран <code>Artist</code>, состояние <code>done</code></figcaption></figure><hr id="655f519b-a8f2-420c-b946-18197eb68f5d"/><p id="c51acaa3-b069-4142-8de0-e99089f7c5da" class="">При нажатии на кнопку <code>Share</code> отображается системное окно, с помощью которого пользователь может экспортировать изображение из отображения <code>Canvas</code>. Изображение должно включать в себя только результат работы отрисовки (без границы отображения <code>Canvas</code>). Изображение должно быть в формате PNG или JPEG (❗️).</p><figure id="367b622f-9397-48d0-a655-38863e7769d6"><a href="https://developer.apple.com/documentation/uikit/uigraphicsimagerenderer?language=objc" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Apple Developer Documentation</div></div><div class="bookmark-href"><img src="https://developer.apple.com/favicon.ico" class="icon bookmark-icon"/>https://developer.apple.com/documentation/uikit/uigraphicsimagerenderer?language=objc</div></div></a></figure><p id="a167c019-c9d7-4d51-8de4-36afa3894d53" class="">Пользователь должен иметь возможность сохранять и просматривать экспортируемое изображение в приложении <code>Photos</code> и приложении <code>Files</code>. </p><figure id="5c653821-609e-41dc-a168-17fdabdc01d2" class="image"><a href="Task/Untitled%203.png"><img style="width:1034px" src="Task/Untitled%203.png"/></a><figcaption>Экран <code>Artist</code>, активное окно экспорта</figcaption></figure><hr id="7cea842c-536e-4258-b71e-3a97b962ff2e"/><p id="75cf5e0b-caf5-4c9b-be74-3f7288a7ab16" class="">Приложение должно запрашивать доступ к пользовательской галерее фотографий. Для этого необходимо в файле <code>Info.plist</code> указать ключ <code>NSPhotoLibraryAddUsageDescription</code> со следующим содержанием:</p><ul id="941517c0-4fa7-453c-ac08-75f78efdf024" class="bulleted-list"><li style="list-style-type:disc">&quot;<strong><em>This application needs access to your library to save the image</em></strong>&quot;</li></ul><p id="f46ea1b5-cbc0-44a9-89fb-60926c07faeb" class="">Если пользователь отказался предоставлять доступ, это разрешение не должно запрашиваться снова.</p><p id="0226f012-53c9-4bf3-885b-337d97b89616" class="">Разрешение должно запрашиваться только при первой попытке доступа к галерее.</p><figure id="0fa0c6c7-cf4c-443c-9ba1-a6b278c2f39f" class="image"><a href="Task/Untitled%204.png"><img style="width:1034px" src="Task/Untitled%204.png"/></a></figure><hr id="b5bcd96a-aca5-4333-8e30-4ab831b3e0e1"/><p id="e9028bcd-a77e-4827-8121-02afeb3373a9" class="">При нажатии на кнопку <code>Open Palette</code> открывается вспомогательное отображение <code>Palette</code> с палитрой цветов. На <code>Palette</code> находятся 12 кнопок, каждой из которых присвоен отдельный цвет. Все 12 кнопок активны. Цвета кнопок идут в соответствии с файлом дизайна приложения.</p><figure id="bc32e3a0-cb21-41af-a56c-65872e0bc84d" class="image"><a href="Task/Untitled%205.png"><img style="width:1034px" src="Task/Untitled%205.png"/></a></figure><hr id="ea840f1a-ff94-41a2-99fc-52ed9b021efd"/><p id="a917465d-1be2-4202-b2b6-c1934c597d88" class="">Пользователь может выбрать три цвета. Выбор происходит в порядке очереди: если пользователь уже выбрал три цвета и выбирает ещё один, тогда первый уже выбранный перестаёт быть выбранным.</p><p id="b32c92e8-a4fb-4b9d-b049-f27a94fb974b" class="">Пример: выбраны цвета в следующей последовательности <code>красный</code>, <code>синий</code>, <code>жёлтый</code>. Пользователь выбирает следующий цвет - <code>фиолетовый</code>. Цвет <code>красный</code> перестаёт быть выбранным и последовательность выбранных цветов становится следующей: <code>синий</code>, <code>жёлтый</code>, <code>фиолетовый</code>. </p><div id="f0b3ed8e-59f4-4c32-aad2-c2f8854bf2cf" class="column-list"><div id="b8e846ca-a796-4945-b52f-cba244667794" style="width:50%" class="column"><figure id="88910bf3-8f53-4c6e-a15d-5d74403ea925" class="image"><a href="Task/Untitled%206.png"><img style="width:1034px" src="Task/Untitled%206.png"/></a></figure></div><div id="eb19e536-16d4-4b11-8ac2-7fc7a4384136" style="width:50%" class="column"><figure id="c874dc27-ee54-40ec-a0bb-269f71bf7056" class="image"><a href="Task/Untitled%207.png"><img style="width:1034px" src="Task/Untitled%207.png"/></a></figure></div></div><p id="3959cc0d-682c-4532-bd23-694e1518354d" class="">Пользователь может исключать уже выбранные цвета повторным нажатием.</p><figure id="580a974f-53df-4ddf-9804-5c2d96541255" class="image"><a href="Task/Untitled%208.png"><img style="width:1034px" src="Task/Untitled%208.png"/></a></figure><hr id="e8a1a566-2a69-49b9-976b-fb70b0461e28"/><p id="3574bddc-96a4-4404-b2dc-193687f2f193" class="">При выборе цвета фоновый цвет вспомогательного отображения <code>Palette</code> меняется на выбранный цвет. Через 1 секунду после выбора фоновый цвет меняется на исходный, указанный в дизайне. Если в течение этой секунды выбирается новый цвет, тогда отсчёт начинается заново для нового выбранного цвета. </p><div id="b8def0fb-0bf5-4799-a16d-88a28d2afdd0" class="column-list"><div id="65480fc0-5ba2-4f2d-99de-854bf2e60010" style="width:62.5%" class="column"><p id="544591f6-f4d0-4ae8-ac86-f64a32b232d1" class="">Если в течение секунды выбранный цвет был исключён из списка выбранных, отсчёт для текущего цвета не должен останавливаться в момент исключения. </p><p id="46978808-05e5-4334-b53f-c15eee56d4f3" class="">Например, был выбран цвет <code>зелёный</code>. Фоновый цвет был установлен в <code>зелёный</code> и начался отсчёт 1 секунды. Через 0.4 секунды после выбора цвет <code>зелёный</code> был исключён из списка выбранных. При этом фоновый цвет ещё 0.6 секунд будет равен <code>зелёный</code> (если после этого не был выбран новый цвет, как описано выше).</p></div><div id="d90fafea-5a2c-4a41-88d5-128e4e90bf5e" style="width:37.5%" class="column"><figure id="112626e7-4789-4dfb-b380-43efda93a7f5"><div class="source"><a href="Task/Simulator_Screen_Recording_-_iPhone_SE_(2nd_generation)_-_2021-07-16_at_13.29.02.mp4">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f6dd1b0b-9398-4447-b25c-6db1c907c308/Simulator_Screen_Recording_-_iPhone_SE_(2nd_generation)_-_2021-07-16_at_13.29.02.mp4</a></div></figure></div></div><p id="6788fba2-aa47-4282-b475-c43ede606d61" class="">При исключении цвета фоновый цвет вспомогательного отображения <code>Canvas</code> не меняется на исключаемый цвет. </p><figure id="db20de81-c25b-4ffd-91ea-7988f008e2cf" class="image"><a href="Task/Untitled%209.png"><img style="width:1034px" src="Task/Untitled%209.png"/></a></figure><p id="65edc7fd-3641-4b9e-954d-4ef9f9bc679f" class="">При нажатии на кнопку <code>Save</code> выбранные цвета сохраняются для использования в следующем цикле отрисовки в отображении <code>Canvas</code>, вспомогательное отображение <code>Palette</code> скрывается с экрана. Если количество выбранных цветов меньше 3, тогда недостающие цвета дополняются цветом <code>#000000</code>, пока общее количество цветов выбранных цветов не будет равно 3. Итоговые цвета в случайном порядке присваиваются 3 путям, отрисовывающим шаблоны на <code>Canvas</code>.</p><p id="5f8d43f3-3ea9-42e4-96b8-ef8af8f03b0a" class="">Например, пользовател выбрал и сохранил цвета <code>красный</code> и <code>синий</code>, тогда после сохранения эти цвета дополнятся цветом <code>#000000</code>, чтобы их общее количество было равно 3. Итоговый набор будет следующим: <code>красный</code>, <code>синий</code>, <code>#000000</code>. После этого цвета в случайном порядке присвоятся путям для отрисовки на <code>Canvas</code>.</p><p id="c551c930-cc03-4c66-abc9-6322eb5451b9" class="">Если пользователь выбрал и сохранил цвета <code>красный</code>, <code>синий</code> и <code>розовый</code>, тогда набор не будет дополняться цветом <code>#000000</code>, так как количество выбранных цветов и так равно 3. Итоговый набор будет следующим: <code>красный</code>, <code>синий</code> и <code>розовый</code>.</p><p id="0d87ff2b-6fc2-4b5d-97a9-1846d833a2fd" class="">Если пользователь выбрал и сохранил цвет <code>красный</code>, тогда дополнение цветом <code>#000000</code> должно давать следующий итоговый набор: <code>красный</code>, <code>#000000</code>, <code>#000000</code>. </p><p id="a9ffa594-533c-4fb7-a6d6-ea9e3008529b" class="">Если пользователь сохранил пустой набор выбранных цветов, тогда путям присваиваются цвета по умолчанию.</p><p id="5eefbd40-dd41-4d37-9584-aac2d232c3e4" class=""><strong>Порядок итогового набора цветов несущественен, так как цвета присваиваются путям в случайном порядке. Названия цветов (например, </strong><code><strong>красный</strong></code><strong>) во всём файле использованы только для описания принципа реализации. Цвета, необходимые для использования в готовом приложении, и их порядок описаны в файле дизайна.</strong></p><hr id="3f23bb11-785b-411f-a1e4-55a36afd668a"/><p id="beae74db-c4a5-4ca6-9244-b774e97958f0" class="">При нажатии на кнопку <code>Open Timer</code> открывается вспомогательное окно <code>Timer</code>. На нём расположены интерактивный элемент <code>Slider</code> и три текстовых элемента. Элемент слева от <code>Slider</code> - <code>min</code>, справа - <code>max</code>, посередине - <code>current</code>. Элемент <code>min</code> имеет значение &quot;1&quot;, <code>max</code> - &quot;5&quot;, <code>current</code> - текущее значение из элемента <code>Slider</code>. Элемент <code>Current</code> отображает числовое значение с точностью до <strong>двух</strong> знаков после запятой.</p><p id="8a16f2f0-0cd8-4816-b556-c27eaa06244c" class="">По умолчанию элемент <code>Slider</code> имеет значение <code>1.00</code>Пользователь может взаимодействовать с элементом <code>Slider</code> для увеличения или уменьшения значения элемента <code>Slider</code>. Минимальное значение элемента <code>Slider</code> - <code>1.00</code>, максимальное - <code>5.00</code></p><p id="0935c7cd-8e4c-45f8-b7cf-f92e3d00bef1" class="">При нажатии на кнопку <code>Save</code> значение из элемента <code>Slider</code> сохраняется для использования в следующем цикле отрисовки в отображении <code>Canvas</code>, вспомогательное отображение <code>Palette</code> скрывается с экрана.</p><figure id="660a354c-885d-4099-93d6-38e2d0de55d4" class="image"><a href="Task/Untitled%2010.png"><img style="width:1034px" src="Task/Untitled%2010.png"/></a></figure><hr id="4425d52e-49f5-4301-9994-6e8c1b9b0fe7"/><p id="3038a480-d4ca-48d1-9bbd-d5f65929b121" class="">При нажатии на кнопку <code>Drawings</code> открывается экран <code>Drawings</code>, на котором расположены 4 кнопки: <code>Planet</code>, <code>Head</code>, <code>Tree</code>, <code>Landscape</code>, а также кнопка возврата на предыдущий экран <code>Artist</code>. Заголовок - &quot;<em><strong>Drawings</strong></em>&quot;. Все кнопки на этом экране активны. </p><p id="b933a107-611c-4cae-9382-86fa01686bef" class="">Каждой кнопке соотвествует свой шаблон:</p><ul id="11c8b3cd-6d4c-4e91-9266-c928639c1a28" class="bulleted-list"><li style="list-style-type:disc">Кнопка <code>Planet</code> - шаблон <code>planet</code></li></ul><ul id="01773c6a-20dc-477d-b3d4-7310b360994f" class="bulleted-list"><li style="list-style-type:disc">Кнопка <code>Head</code> - шаблон <code>head</code></li></ul><ul id="e0cfe7c3-9846-4088-8cd7-69221e14a322" class="bulleted-list"><li style="list-style-type:disc">Кнопка <code>Tree</code> - шаблон <code>tree</code></li></ul><ul id="bfbafd9e-e6d2-424a-aa8c-348aacd1d4a8" class="bulleted-list"><li style="list-style-type:disc">Кнопка <code>Landscape</code> - шаблон <code>landscape</code></li></ul><p id="efe85bdc-a91e-4022-a2c3-7537e102b45e" class="">При нажатии на кнопку соответствующий ей шаблон запоминается в системе для использования в следующем цикле отрисовки на <code>Canvas</code>.</p><p id="286ebb44-b476-4e11-b3a9-654667372138" class="">Одна из кнопок находится в состоянии <code>selected</code>. Это состояние определяется тем, какой из шаблонов выбран в системе для отрисовки на отображении <code>Canvas</code>. По умолчанию это шаблон <code>Head</code>. </p><figure id="10605549-96e8-48cf-8986-99e571c2e731" class="image"><a href="Task/Untitled%2011.png"><img style="width:1034px" src="Task/Untitled%2011.png"/></a></figure></div></article></body></html>
